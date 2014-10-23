@@ -50,6 +50,7 @@ public class JoystickAdapter implements Runnable, MyObservable{
 			gpController = new GamePadController();
 		} catch (NoJoystickException e) {
 			this.getT().interrupt(); //if the joystick is not found
+			System.err.println("no joystick exception");
 		}
 		this.polling();	//catch the value of the joystick in a loop, see below
 	}
