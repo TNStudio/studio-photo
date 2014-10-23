@@ -1,5 +1,6 @@
 package parainnage;
 
+import imageProcessing.ImageBuilder;
 import imageProcessing.ImageConverter;
 
 import java.awt.image.BufferedImage;
@@ -23,6 +24,8 @@ public class Modele implements MyObserver, MyObservable{
 	private JoystickAdapter joystick;
 	private int photo_number = 0;
 	private BufferedImage image = null;
+	private BufferedImage canvas = null;
+	private BufferedImage result = null;
 	
 	private ArrayList<MyObserver> obsList;
 
@@ -43,15 +46,17 @@ public class Modele implements MyObserver, MyObservable{
 		photo_number =  photoFolder.list().length;
 		if(joystick.getButtons()[0]){
 			System.out.println("shoot");
-			File imageFile = new File(photoFolder, "photo"+photo_number);
+			File imageFile = new File(photoFolder, "photo"+photo_number+".jpeg");
 			slr.shoot(imageFile, false);
 			try {
 				image = ImageIO.read(imageFile);
+				canvas = ImageIO.read(new File("Canvas.png"));
+				ImageBuilder builder = new ImageBuilder(canvas, image);
+				BufferedImage result = builder.getResult();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			//ImageConverter process = new ImageConverter(image);
-			//image = process.getProcess();
 			updateObserver();
 		}
 
@@ -92,6 +97,16 @@ public class Modele implements MyObserver, MyObservable{
 
 	public void setImage(BufferedImage image) {
 		this.image = image;
+	}
+
+
+	public BufferedImage getResult() {
+		return result;
+	}
+
+
+	public void setResult(BufferedImage result) {
+		this.result = result;
 	}
 
 	

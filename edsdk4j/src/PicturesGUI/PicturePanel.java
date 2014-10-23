@@ -81,7 +81,7 @@ public class PicturePanel extends JPanel implements MyObserver{
 		} catch (IOException e) {
 			System.out.println("l'image du panneau n'a pas été chargé");
 		}*/
-		image = modele.getImage();
+		image = modele.getResult();
 		revalidate();
 		repaint();
 		System.out.println("j'ai rafraichi !");
