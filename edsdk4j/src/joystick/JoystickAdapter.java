@@ -7,7 +7,6 @@ import net.java.games.input.ControllerEnvironment;
 import exceptions.NoJoystickException;
 import observerPattern.MyObservable;
 import observerPattern.MyObserver;
-import vehicleControl.SchutzoControl;
 /**
  * Adapter to a joystick in the SchutzoControl software
  * @author Martin
@@ -28,7 +27,6 @@ public class JoystickAdapter implements Runnable, MyObservable{
 	
 	private ArrayList<MyObserver> observerList;
 	
-	private SchutzoControl control;
 	
 	private boolean isActivate=false;  //whether the joystick is activate or not
 	
@@ -36,10 +34,9 @@ public class JoystickAdapter implements Runnable, MyObservable{
 	 * Create the joystick and his thread
 	 * @param pollingTime in millisecond
 	 */
-	public JoystickAdapter(SchutzoControl control ,int pollingTime){
+	public JoystickAdapter(int pollingTime){
 		
 		this.pollingTime=pollingTime;
-		this.control=control;
 		observerList = new ArrayList<MyObserver>();
 		
 		
@@ -61,7 +58,6 @@ public class JoystickAdapter implements Runnable, MyObservable{
 	 */
 	public void polling(){
 		isActivate = true; //put the value to true to publish the joystick as activated
-		control.getLog().addToLg("Joystick started");
 		while(isActivate){ //thread loop
 				startPolling();
 			try {
@@ -74,7 +70,6 @@ public class JoystickAdapter implements Runnable, MyObservable{
 			}
 		}
 		System.out.println("end of joystick");
-		control.getLog().addToLg("Joystick finished");
 		this.updateObserver(); //update the observers that new data are available
 	}
 	/**
@@ -97,8 +92,6 @@ public class JoystickAdapter implements Runnable, MyObservable{
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			Thread.currentThread().interrupt();
-			System.out.println("ici");
-			control.getLog().addToLg("Warning ! Error : no joystick found");
 		}
 		this.updateObserver(); //update the observers that new data are available
 		

@@ -4,7 +4,12 @@
 	<classpathentry kind="lib" path="lib/jna.jar"/>
 	<classpathentry kind="lib" path="lib/platform.jar"/>
 	<classpathentry kind="lib" path="lib/jnaerator-0.9.5.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_25"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_25">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="E:/Documents/git/studio_photo/jinput/dist"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="java-image-scaling-0.8.6.jar"/>
+	<classpathentry kind="lib" path="E:/Documents/git/studio_photo/jinput/dist/jinput.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

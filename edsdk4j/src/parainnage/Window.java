@@ -6,7 +6,7 @@ public class Window extends JFrame{
 	
 	public Window(){
 		super();
-		this.
+		this.setVisible(true);
 	}
 
 }
