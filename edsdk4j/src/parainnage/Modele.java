@@ -50,8 +50,8 @@ public class Modele implements MyObserver, MyObservable{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			ImageConverter process = new ImageConverter(image);
-			image = process.getProcess();
+			//ImageConverter process = new ImageConverter(image);
+			//image = process.getProcess();
 			updateObserver();
 		}
 
@@ -82,6 +82,16 @@ public class Modele implements MyObserver, MyObservable{
 
 	public void setJoystick(JoystickAdapter joystick) {
 		this.joystick = joystick;
+	}
+
+
+	public BufferedImage getImage() {
+		return image;
+	}
+
+
+	public void setImage(BufferedImage image) {
+		this.image = image;
 	}
 
 	

@@ -33,8 +33,7 @@ public class PicturePanel extends JPanel implements MyObserver{
 		} catch (IOException e) {
 			System.out.println("l'image du panneau n'a pas été chargé");
 		}
-		rapport = 1;
-		rapportRendu = 0.25;
+		rapport = 1.5;
 		revalidate();
 	
 	}
@@ -76,12 +75,13 @@ public class PicturePanel extends JPanel implements MyObserver{
 
 	@Override
 	public void update() {
-		File defaultImage = new File("Canvas.png");
+		/*File defaultImage = new File("Canvas.png");
 		try {
 			image = ImageIO.read(defaultImage);
 		} catch (IOException e) {
 			System.out.println("l'image du panneau n'a pas été chargé");
-		}
+		}*/
+		image = modele.getImage();
 		revalidate();
 		repaint();
 		System.out.println("j'ai rafraichi !");
