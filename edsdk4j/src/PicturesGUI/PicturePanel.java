@@ -27,7 +27,7 @@ public class PicturePanel extends JPanel implements MyObserver{
 		super();
 		this.modele = modele;
 		modele.addObserver(this);
-		File defaultImage = new File("default.jpg");
+		File defaultImage = new File("wait.jpg");
 		try {
 			image = ImageIO.read(defaultImage);
 		} catch (IOException e) {
