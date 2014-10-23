@@ -46,11 +46,11 @@ public class Modele implements MyObserver, MyObservable{
 		photo_number =  photoFolder.list().length;
 		if(joystick.getButtons()[0]){
 			System.out.println("shoot");
-			File imageFile = new File(photoFolder, "photo"+photo_number+".jpg");
+			File imageFile = new File(photoFolder, "photo"+photo_number+".png");
 			slr.shoot(imageFile, false);
 			try {
 				image = ImageIO.read(imageFile);
-				canvas = ImageIO.read(new File("Canvas.jpg"));
+				canvas = ImageIO.read(new File("Canvas.png"));
 				ImageBuilder builder = new ImageBuilder(canvas, image);
 				//result = builder.getResult();
 				result = canvas;
